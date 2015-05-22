@@ -1,0 +1,198 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 11.50      0.46     0.46        1   455.57   455.57  read_input (pagerank.h:336 @ 4016c0)
+  9.10      0.82     0.36                             main (pagerank.c:438 @ 401660)
+  7.96      1.13     0.32                             read_input (pagerank.h:341 @ 4016eb)
+  6.57      1.39     0.26                             main (pagerank.c:455 @ 401690)
+  5.82      1.62     0.23                             pagerank (pagerank.c:244 @ 401fa3)
+  5.56      1.84     0.22                             pagerank (pagerank.c:249 @ 402023)
+  4.93      2.04     0.20                             pr_worker (pagerank.c:149 @ 401638)
+  4.80      2.23     0.19                             pagerank (pagerank.c:243 @ 401f6d)
+  4.30      2.40     0.17                             pr_worker (pagerank.c:94 @ 40101f)
+  3.92      2.55     0.16                             pagerank (pagerank.c:252 @ 402077)
+  3.79      2.70     0.15                             read_input (pagerank.h:342 @ 401718)
+  3.67      2.85     0.15                             pr_worker (pagerank.c:150 @ 40164e)
+  3.29      2.98     0.13                             pagerank (pagerank.c:248 @ 40200a)
+  3.29      3.11     0.13                             pagerank (pagerank.c:250 @ 402047)
+  3.03      3.23     0.12                             pr_worker (pagerank.c:146 @ 40161c)
+  2.78      3.34     0.11                             main (pagerank.c:460 @ 4016b5)
+  2.53      3.44     0.10                             main (pagerank.c:458 @ 4016a7)
+  2.28      3.53     0.09                             pagerank (pagerank.c:243 @ 401fda)
+  2.28      3.62     0.09                             pagerank (pagerank.c:251 @ 402057)
+  1.26      3.67     0.05                             pagerank (pagerank.c:241 @ 401f61)
+  1.26      3.72     0.05                             pr_worker (pagerank.c:145 @ 4015fc)
+  1.26      3.77     0.05                             read_input (pagerank.h:347 @ 40177e)
+  1.14      3.81     0.05                             pagerank (pagerank.c:264 @ 40208f)
+  1.01      3.85     0.04                             pagerank (pagerank.c:240 @ 401f49)
+  0.76      3.88     0.03                             pagerank (pagerank.c:237 @ 401f1f)
+  0.76      3.91     0.03                             pagerank (pagerank.c:275 @ 402101)
+  0.25      3.92     0.01                             main (pagerank.c:452 @ 40168b)
+  0.25      3.93     0.01                             pagerank (pagerank.c:247 @ 402003)
+  0.25      3.94     0.01                             pagerank (pagerank.c:281 @ 4021b4)
+  0.25      3.95     0.01                             pr_worker (pagerank.c:143 @ 4015e2)
+  0.25      3.96     0.01                             pr_worker (pagerank.c:147 @ 40162f)
+  0.00      3.96     0.00    69623     0.00     0.00  pr_worker (pagerank.c:46 @ 400b50)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 0.25% of 3.96 seconds
+
+index % time    self  children    called     name
+                0.46    0.00       1/1           pagerank (pagerank.c:294 @ 40233f) [2]
+[1]     11.5    0.46    0.00       1         read_input (pagerank.h:336 @ 4016c0) [1]
+-----------------------------------------------
+                                                 <spontaneous>
+[3]      9.1    0.36    0.00                 main (pagerank.c:438 @ 401660) [3]
+-----------------------------------------------
+                0.00    0.00       1/69623       pr_worker (pagerank.c:97 @ 40106c) [331]
+                0.00    0.00       1/69623       pr_worker (pagerank.c:134 @ 401492) [359]
+                0.00    0.00       1/69623       pr_worker (pagerank.c:136 @ 4014f9) [361]
+                0.00    0.00       1/69623       pagerank (pagerank.c:292 @ 402313) [204]
+                0.00    0.00       1/69623       pagerank (pagerank.c:294 @ 40233f) [2]
+                0.00    0.00    8190/69623       pr_worker (pagerank.c:73 @ 400e0b) [317]
+                0.00    0.00    8190/69623       pr_worker (pagerank.c:100 @ 4010e5) [333]
+                0.00    0.00    8190/69623       pr_worker (pagerank.c:102 @ 40110f) [335]
+                0.00    0.00   12286/69623       pr_worker (pagerank.c:113 @ 40124c) [343]
+                0.00    0.00   12286/69623       pr_worker (pagerank.c:118 @ 4012ef) [347]
+                0.00    0.00   20476/69623       pr_worker (pagerank.c:115 @ 401279) [344]
+[33]     0.0    0.00    0.00   69623         pr_worker (pagerank.c:46 @ 400b50) [33]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+   [3] main (pagerank.c:438 @ 401660) [29] pagerank (pagerank.c:247 @ 402003) [31] pr_worker (pagerank.c:143 @ 4015e2)
+  [28] main (pagerank.c:452 @ 40168b) [14] pagerank (pagerank.c:248 @ 40200a) [22] pr_worker (pagerank.c:145 @ 4015fc)
+   [5] main (pagerank.c:455 @ 401690) [7] pagerank (pagerank.c:249 @ 402023) [16] pr_worker (pagerank.c:146 @ 40161c)
+  [18] main (pagerank.c:458 @ 4016a7) [15] pagerank (pagerank.c:250 @ 402047) [32] pr_worker (pagerank.c:147 @ 40162f)
+  [17] main (pagerank.c:460 @ 4016b5) [20] pagerank (pagerank.c:251 @ 402057) [8] pr_worker (pagerank.c:149 @ 401638)
+  [26] pagerank (pagerank.c:237 @ 401f1f) [11] pagerank (pagerank.c:252 @ 402077) [13] pr_worker (pagerank.c:150 @ 40164e)
+  [25] pagerank (pagerank.c:240 @ 401f49) [24] pagerank (pagerank.c:264 @ 40208f) [1] read_input (pagerank.h:336 @ 4016c0)
+  [21] pagerank (pagerank.c:241 @ 401f61) [27] pagerank (pagerank.c:275 @ 402101) [4] read_input (pagerank.h:341 @ 4016eb)
+   [9] pagerank (pagerank.c:243 @ 401f6d) [30] pagerank (pagerank.c:281 @ 4021b4) [12] read_input (pagerank.h:342 @ 401718)
+   [6] pagerank (pagerank.c:244 @ 401fa3) [33] pr_worker (pagerank.c:46 @ 400b50) [23] read_input (pagerank.h:347 @ 40177e)
+  [19] pagerank (pagerank.c:243 @ 401fda) [10] pr_worker (pagerank.c:94 @ 40101f)

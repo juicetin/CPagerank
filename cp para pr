@@ -1,0 +1,74 @@
+
+typedef struct {
+    page * pageList, ** inPageList;
+    double * rankScoresPrev, * rankScoresCur;
+    double dampener, locEuc;
+    int start, end, npages, ncores; 
+} wargs;
+
+static inline void thread_ops (void *(*worker)(void*), int ncores, wargs wargs[ncores])
+{
+    pthread_t threads[ncores];
+    for (int i = 0; i < ncores; i++)
+        pthread_create(&threads[i], NULL, worker, &wargs[i]);
+
+    for (int i = 0; i < ncores; i++)
+        pthread_join(threads[i], NULL);
+}
+
+void * pr_worker (void *arg)
+{
+    wargs * pr = (wargs *) arg;
+    int start = pr->start, end = pr->end;
+    double dampener = pr->dampener, constant = (1 - dampener)/pr->npages, eucValue = 0;
+    for (int i = start; i < end; i++)
+    {
+        if (pr->pageList[i].inlinks != NULL)
+        {
+            double curRank = 0;
+            int links = pr->pageList[i].inlinks->length;
+            for (int j = 0; j < links; j++)
+            {
+                curRank += pr->rankScoresPrev[pr->inPageList[i][j].index]/pr->inPageList[i][j].noutlinks;
+            }
+            curRank = constant + dampener * curRank;
+            pr->rankScoresCur[i] = curRank;
+            eucValue += (curRank - pr->rankScoresPrev[i]) * (curRank - pr->rankScoresPrev[i]);
+        }
+        else
+        {
+            eucValue += (constant - pr->rankScoresPrev[i]) * (constant - pr->rankScoresPrev[i]);
+            pr->rankScoresCur[i] = constant;
+        }
+    }
+    pr->locEuc = eucValue;
+    return NULL;
+}
+
+double para_PR (page* pageList, page** inPageList, double* rankScoresPrev, double* rankScoresCur, double dampener, int npages, int ncores)
+{
+    wargs pr[ncores];
+    int splitter = npages/ncores;
+
+    for (int i = 0; i < ncores; i++)
+    {
+        pr[i].start = i * splitter;
+        pr[i].end = (i+1) * splitter;
+        pr[i].pageList = pageList;
+        pr[i].inPageList = inPageList;
+        pr[i].rankScoresPrev = rankScoresPrev;
+        pr[i].rankScoresCur = rankScoresCur;
+        pr[i].dampener = dampener;
+        pr[i].npages = npages;
+        pr[i].ncores = ncores;
+    }
+    thread_ops (pr_worker, ncores, pr);
+
+    double eucValue = 0;
+    for (int i = 0; i < ncores; i++)
+    {
+        eucValue += pr->locEuc;
+    }
+
+    return eucValue;
+}

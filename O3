@@ -1,0 +1,55 @@
+-fauto-inc-dec 
+-fcprop-registers 
+-fdce 
+-fdefer-pop 
+-fdelayed-branch 
+-fdse 
+-fguess-branch-probability 
+-fif-conversion2 
+-fif-conversion 
+-finline-small-functions 
+-fipa-pure-const 
+-fipa-reference 
+-fmerge-constants
+-fsplit-wide-types 
+-ftree-builtin-call-dce 
+-ftree-ccp 
+-ftree-ch 
+-ftree-copyrename 
+-ftree-dce 
+-ftree-dominator-opts 
+-ftree-dse 
+-ftree-fre 
+-ftree-sra 
+-ftree-ter 
+-funit-at-a-time
+-fthread-jumps 
+-falign-functions  -falign-jumps 
+-falign-loops  -falign-labels 
+-fcaller-saves 
+-fcrossjumping 
+-fcse-follow-jumps  -fcse-skip-blocks 
+-fdelete-null-pointer-checks 
+-fexpensive-optimizations 
+-fgcse  -fgcse-lm  
+-findirect-inlining 
+-foptimize-sibling-calls 
+-fpeephole2 
+-fregmove 
+-freorder-blocks  -freorder-functions 
+-frerun-cse-after-loop  
+-fsched-interblock  -fsched-spec 
+-fschedule-insns  -fschedule-insns2 
+-fstrict-aliasing -fstrict-overflow 
+-ftree-switch-conversion 
+-ftree-pre 
+-ftree-vrp
+-finline-functions
+-funswitch-loops
+-fpredictive-commoning
+-fgcse-after-reload
+-ftree-vectorize
+
+EXTRA
+-fforward-propagate
+-fomit-frame-pointer

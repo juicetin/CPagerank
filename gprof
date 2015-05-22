@@ -1,0 +1,5 @@
+gcc -O0 -std=gnu11 -g -pg -lm -lpthread -pthread pagerank.c -o pagerank -lm &&
+
+time ./pagerank < tests/test12.in > /dev/null
+gprof -l ./pagerank > ln.stats &&
+less ln.stats
